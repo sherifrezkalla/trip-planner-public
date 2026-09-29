@@ -1,0 +1,14 @@
+[
+  "register_trip_group",
+  "get_trip_agent_readiness",
+  "activate_trip_agent",
+  "get_trip_context",
+  "get_today_plan",
+  "search_trip_options",
+  "get_pending_trip_decisions",
+  "report_group_announcement",
+  "preview_trip_change",
+  "commit_trip_change",
+  "vote_on_trip_change",
+  "decide_trip_change"
+]

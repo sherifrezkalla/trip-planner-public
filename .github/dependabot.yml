@@ -1,0 +1,77 @@
+# Why this file exists.
+#
+# Six high-severity advisories accumulated against the installed dependency
+# tree without anything surfacing them: `npm audit` is not part of the three
+# gates, and Dependabot was not configured, so the only way to learn about a
+# vulnerable package was to go looking. The next one should arrive as a pull
+# request instead.
+#
+# Note that alerts themselves are a repository setting, not a file: this
+# schedules update PRs. Dependabot alerts and security updates still need
+# enabling under Settings > Code security.
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    # A week's updates as a handful of PRs rather than a dozen. Each still has
+    # to pass test, lint and build like any other change.
+    open-pull-requests-limit: 5
+    groups:
+      # Patch and minor bumps across the tree are reviewed together; they are
+      # the ones where reading the diff matters less than seeing CI stay green.
+      routine:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+    # Majors held back below are a piece of work, not a dependency bump.
+    #
+    # The list is deliberately short, and this is the reason: an ignore rule
+    # also suppresses a *security* update that would fix the package, and
+    # closing off that path is exactly the failure this file was added to
+    # prevent. So a major is held back only where taking it is a project in its
+    # own right, and every other package's majors are still allowed to arrive.
+    #
+    # Anything named here has to be bumped by hand. That is the intent — but it
+    # means nothing will remind you, so a held package going years out of date
+    # is the cost being accepted.
+    ignore:
+      # The framework, pinned exactly and moved as a set. eslint-config-next
+      # tracks next's own version, so releasing it alone would desync the two.
+      - dependency-name: next
+        update-types: ["version-update:semver-major"]
+      - dependency-name: eslint-config-next
+        update-types: ["version-update:semver-major"]
+      - dependency-name: react
+        update-types: ["version-update:semver-major"]
+      - dependency-name: react-dom
+        update-types: ["version-update:semver-major"]
+      # The toolchain that defines the gates. A typescript or eslint major
+      # rewrites what "lint passes" and "build passes" mean, so it lands on its
+      # own, deliberately, not in a batch nobody reads.
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
+      - dependency-name: eslint
+        update-types: ["version-update:semver-major"]
+      # @types/node should follow the Node the runner and Vercel actually use —
+      # currently 24 — rather than whatever is newest on npm. It is behind at 20
+      # and worth a deliberate bump to match; latest is the wrong target.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      # One PR for the workflow's actions rather than one per action. Their
+      # majors are routine — usually just the Node the action itself runs on —
+      # so they are grouped rather than held back.
+      actions:
+        patterns:
+          - "*"

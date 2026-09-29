@@ -1,0 +1,68 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# superpowers (dev tooling)
+.superpowers/
+
+# Supabase CLI link state — machine-local, not project config
+supabase/.temp/
+
+# Playwright CLI scratch
+.playwright-cli/
+
+# macOS/iCloud duplicate copies ("file 2.sql"). This checkout lives under
+# Documents, where sync can silently create them; one was committed once
+# already, which would have applied a migration twice. No real file here has a
+# space before its extension.
+* [0-9].*
+
+# Private operational notes, agent state, and local review/audit artifacts
+/HANDOVER.md
+/docs/sessions/
+/output/
+/trip-planner-review/
+/work/
+/.audit/
+/.hermes/
+/backups/
+/exports/
