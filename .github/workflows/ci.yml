@@ -1,0 +1,55 @@
+# The three gates AGENTS.md requires before a pull request is published.
+#
+# They ran on trust until now: the README told contributors to "pass the
+# repository checks" when no such checks existed, and the only automated gate
+# was Vercel's build. Vercel builds the app; it does not run the tests.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+# A new push supersedes the run it interrupted; nothing is learned from
+# finishing a check against a commit that has already been replaced.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: test · lint · build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          # Matches the Vercel runtime the app is deployed on.
+          node-version: 24
+          cache: npm
+
+      # `npm ci` is strict where `npm install` is forgiving: it refuses a lock
+      # file that has drifted from package.json. That strictness is the point —
+      # it is what makes a CI run reproduce what a fresh clone would get.
+      - name: Install
+        id: install
+        run: npm ci
+
+      # Each gate reports even when an earlier one failed, so a red run names
+      # everything that is wrong rather than only the first thing. They are all
+      # skipped when the install failed, because "vitest: not found" three times
+      # describes the install, not the code.
+      - name: Tests
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: npm test
+
+      - name: Lint
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: npm run lint
+
+      # No secrets: the build must not depend on runtime configuration, and
+      # this run proves it stays that way.
+      - name: Build
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: npm run build

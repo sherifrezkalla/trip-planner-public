@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  // The " 2" copies macOS/iCloud sync leaves behind. `.gitignore` keeps them out
+  // of the repository, which is why CI and a fresh clone never see one — but an
+  // ignored file is still a file, and TypeScript was compiling stale copies of
+  // real modules straight into the local build. No genuine source file here has
+  // a space before its extension, so matching that shape is safe.
+  "exclude": ["node_modules", "**/* ?.*", "**/* ??.*"]
+}
