@@ -166,7 +166,7 @@ describe("mutation snapshot lifecycle boundaries", () => {
     expect(next.snapshot.mappings).toBe(cached.snapshot.mappings);
     expect(next.snapshot.recentActions).toBe(cached.snapshot.recentActions);
     const html = panel(next);
-    expect(html).toContain("Next: have the connector deliver the privacy notice");
+    expect(html).toContain("Introduce the assistant to your group");
     expect(html).toContain("Recent action history");
   });
   it("clears collections on pairing even if the response has the same identity", () => {
@@ -242,5 +242,53 @@ describe("provider template deployment address", () => {
     const html = panel(state({ provider: "hermes" }));
     expect(html).toContain("https://planner.example.com/api/mcp");
     expect(html).toContain("Copy configuration template");
+  });
+});
+
+describe("guided agent onboarding", () => {
+  afterEach(() => vi.unstubAllEnvs());
+  it("starts with an assistant handoff and an honest path for people without an agent", () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://planner.example");
+    const html = panel({ ...initialSetupState, loaded: true });
+    expect(html).toContain('aria-label="Agent setup steps"');
+    expect(html).toContain("Bring the assistant you already use");
+    expect(html).toContain("I don’t have an assistant yet");
+    expect(html).toContain("does not provide a hosted agent");
+    expect(html).toContain("Copy setup brief");
+    const advanced = rendered.elements.find(el => el.type === "details" && content(el.props.children).includes("Copy configuration template"));
+    expect(advanced?.props.open).toBeUndefined();
+    expect(onCommand).not.toHaveBeenCalled();
+  });
+  it("copies only the setup brief, never the pairing code, and does not pair automatically", async () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://planner.example");
+    panel(state({ provider: "hermes", status: "pending", pairingExpiresAt: new Date(now + 60000).toISOString() }, { pairingCode: "private-once-code" }));
+    await (button("Copy setup brief").props.onClick as () => Promise<void>)();
+    const copied = vi.mocked(navigator.clipboard.writeText).mock.calls[0][0];
+    expect(copied).toContain("existing Hermes assistant");
+    expect(copied).not.toContain("private-once-code");
+    expect(copied).not.toContain("Family trip");
+    expect(onCommand).not.toHaveBeenCalled();
+    const providerSelect = rendered.elements.find(el => el.type === "select" && el.props.value === "hermes");
+    expect(providerSelect?.props.disabled).toBe(true);
+  });
+  it.each([undefined, "https://planner.example/t/private?token=secret"])("does not offer a setup brief without a safe configured origin", site => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", site);
+    expect(panel({ ...initialSetupState, loaded: true })).not.toContain("Copy setup brief");
+  });
+  it("reflects server prerequisites rather than marking completion after copying", () => {
+    expect(panel(state({ groupRegistered: false }))).toContain("Choose your WhatsApp group");
+    const unmapped = state(); unmapped.snapshot.mappings = [];
+    expect(panel(unmapped)).toContain("Confirm your personal WhatsApp identity");
+    expect(panel(state())).toContain("Introduce the assistant to your group");
+    expect(panel(state())).not.toContain("Your assistant is connected");
+    expect(panel(state({ status: "active", activatedAt: "2026-09-23T11:59:00Z", privacyNoticeDelivered: true }))).toContain("You can leave this check until your trip");
+    expect(panel(state({ status: "paused" }))).toContain("trip access is paused");
+  });
+  it("removes apparent progress on an uncertain request and disables the handoff", () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://planner.example");
+    const html = panel(state({ status: "pending" }, { error: "Refresh before retrying" }));
+    expect(html).toContain("Refresh to check your connection");
+    expect(html).not.toContain('aria-current="step"');
+    expect(button("Copy setup brief").props.disabled).toBe(true);
   });
 });

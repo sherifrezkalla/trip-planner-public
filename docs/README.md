@@ -3,7 +3,7 @@
 ## Using the app
 
 - [Beginner's guide](getting-started.md): create or join a trip, collaborate, and troubleshoot.
-- [Agent setup overview](agent-setup.md): optional assistants, responsibilities, and current limits.
+- [Agent setup overview](agent-setup.md): guided steps, a setup brief for your existing assistant, responsibilities, and current limits.
 - [Roadmap](../ROADMAP.md): shipped, preview, and planned features.
 - [Product strategy](product-strategy.md): purpose and scope.
 
