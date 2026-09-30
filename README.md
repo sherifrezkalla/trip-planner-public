@@ -36,7 +36,7 @@ Trip Planner focuses on coordinating a group and keeping a shared plan useful du
 
 AI results can be wrong or unavailable. Hosting, Google APIs, and model providers may charge separately; an open-source license does not include those services. A paid consumer AI subscription is not automatically an API credential.
 
-WhatsApp is **not** automatically connected by deploying this app. Bring-your-own-agent setup now has guided steps and a credential-free setup brief. A capable local assistant or technical operator still configures the provider. The gateway and organizer setup UI are implemented, but full real-group behavior is not certified for either provider. Native polls, proactive monitoring, and the simplified mobile companion remain unfinished. See [agent setup](docs/agent-setup.md).
+WhatsApp is **not** automatically connected by deploying this app. Bring-your-own-agent setup now has guided steps and a credential-free setup brief. This preview is deployed on the maintained installation; its authenticated production organizer check remains pending ([release status](docs/architecture/guided-agent-onboarding.md)). A capable local assistant or technical operator still configures the provider. The gateway and organizer setup UI are implemented, but full real-group behavior is not certified for either provider. Native polls, proactive monitoring, and the simplified mobile companion remain unfinished. See [agent setup](docs/agent-setup.md).
 
 ## Run locally
 
