@@ -22,6 +22,13 @@ describe("provider config templates", () => {
     expect(snippet).not.toContain('"*"');
     expect(snippet).not.toContain("WHATSAPP_ALLOWED_USERS=*");
   });
+  it("keeps Hermes stateless and WhatsApp replies quiet in the operator template", () => {
+    const config = providerConfiguration("hermes", "https://planner.example/api/mcp");
+    expect(config).toContain("protocol: stateless");
+    expect(config).toContain('tool_progress: "off"');
+    expect(config).toContain("interim_assistant_messages: false");
+    expect(config).toContain("show_reasoning: false");
+  });
   it("uses the current OpenClaw toolFilter and group prompt keys", () => {
     const config = JSON.parse(providerConfiguration("openclaw", "https://planner.example/api/mcp", "123-456@g.us"));
     expect(config.mcp.servers["trip-planner"].toolFilter.include).toEqual(toolNames);

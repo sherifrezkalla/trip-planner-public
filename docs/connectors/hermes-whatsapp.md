@@ -1,6 +1,6 @@
 # Hermes WhatsApp connector
 
-Status: operator preview. Official references checked on 2026-09-23. On 2026-09-27, installed Hermes **0.21.5** passed actual MCP transport discovery/readiness and production activation using a real WhatsApp privacy-notice receipt. A model-provider weekly limit blocked the read-only assistant check; end-to-end conversation behavior and native polls remain unverified. See [checkpoint evidence](../architecture/trip-agent-connectors-release.md#hermes-activation-checkpoint--2026-09-27). The gateway requires MCP **2026-07-28**, stateless POST Streamable HTTP; verify each installed version rather than assuming compatibility.
+Status: operator preview. Official references checked on 2026-09-23. On 2026-09-27, installed Hermes **0.21.5** passed actual MCP transport discovery/readiness and production activation using a real WhatsApp privacy-notice receipt. A real read-only group question completed on 2026-09-30 after model access recovered. Remaining live-trip checks and native polls are deferred and remain unverified. See [checkpoint evidence](../architecture/trip-agent-connectors-release.md#hermes-activation-checkpoint--2026-09-27). The gateway requires MCP **2026-07-28**, stateless POST Streamable HTTP; verify each installed version rather than assuming compatibility.
 
 ## Prepare and pair
 
@@ -89,3 +89,19 @@ Run the [behavioral verification matrix](openclaw-whatsapp.md#verify-before-call
 For outages, check MCP discovery and group admission, then re-read canonical state before any pending action. Rotation is manual: confirm in the app, replace the bearer privately, reload, and probe. Expired previews/confirmations stay expired. Pause/revoke must stop retries; never auto-resume. To change groups, revoke and pair again, register the new group, reconfirm mappings, and post a fresh notice.
 
 Review Hermes/model transcript retention and log/backup access independently. The planner stores structured records, but cannot control Hermes history or its WhatsApp session backup. See [architecture and limitations](../architecture/trip-agent-connectors.md).
+
+## Quiet replies for travelers
+
+On versions supporting per-platform display settings, merge these keys into the dedicated trip profile. Preserve existing configuration and other profiles; back up affected settings privately first. These settings hide technical tool-progress bubbles and intermediate commentary, without changing trip permissions. Already-posted messages are unaffected. Verify the effective settings against the installed runtime.
+
+```yaml
+display:
+  platforms:
+    whatsapp:
+      tool_progress: "off"
+      show_reasoning: false
+      interim_assistant_messages: false
+      streaming: false
+      long_running_notifications: false
+      busy_ack_detail: false
+```

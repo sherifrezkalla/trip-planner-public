@@ -16,10 +16,14 @@ export function providerConfiguration(provider: TripAgentProvider, mcpUrl: strin
   return [
     "mcp_servers:", "  trip_planner:", `    url: ${JSON.stringify(url.href)}`, "    headers:",
     `      Authorization: ${JSON.stringify(headers.Authorization)}`,
+    "    protocol: stateless",
     "    timeout: 20", "    connect_timeout: 20", "    enabled: true", "    supports_parallel_tool_calls: false",
     "    tools:", `      include: ${JSON.stringify(toolNames)}`, "      resources: false", "      prompts: false",
     "whatsapp:", "  unauthorized_dm_behavior: ignore", "  send_read_receipts: false",
     "  group_policy: allowlist", `  group_allow_from: ${JSON.stringify([groupId])}`,
+    "display:", "  platforms:", "    whatsapp:", '      tool_progress: "off"',
+    "      show_reasoning: false", "      interim_assistant_messages: false", "      streaming: false",
+    "      long_running_notifications: false", "      busy_ack_detail: false",
     "# Dedicated bot number. Set WHATSAPP_MODE=bot and an explicit WHATSAPP_ALLOWED_USERS list in the provider environment.",
     "# Keep current provider batching defaults. Install the canonical group prompt in the dedicated bot profile.",
   ].join("\n");

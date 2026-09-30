@@ -14,7 +14,7 @@ This public repository starts from a reviewed source snapshot. Earlier private d
 | --- | --- |
 | Join or organize a trip on an existing installation | [Beginner's guide](docs/getting-started.md) |
 | Run your own private installation | [Self-hosting guide](docs/self-hosting.md) — technical setup required |
-| Connect your existing assistant | [Agent setup overview](docs/agent-setup.md) — optional, advanced preview |
+| Connect your existing assistant | [Agent setup overview](docs/agent-setup.md) — optional, guided preview |
 | Contribute code, documentation, or a bug report | [Contributing](CONTRIBUTING.md) |
 | Understand access and data handling | [Security and privacy](SECURITY.md) |
 
@@ -36,7 +36,7 @@ Trip Planner focuses on coordinating a group and keeping a shared plan useful du
 
 AI results can be wrong or unavailable. Hosting, Google APIs, and model providers may charge separately; an open-source license does not include those services. A paid consumer AI subscription is not automatically an API credential.
 
-WhatsApp is **not** automatically connected by deploying this app. Bring-your-own-agent setup currently needs a technical operator. The gateway and organizer setup UI are implemented, but full real-group behavior is not certified for either provider. Native polls, proactive monitoring, and the simplified mobile companion remain unfinished. See [agent setup](docs/agent-setup.md).
+WhatsApp is **not** automatically connected by deploying this app. Bring-your-own-agent setup now has guided steps and a credential-free setup brief. A capable local assistant or technical operator still configures the provider. The gateway and organizer setup UI are implemented, but full real-group behavior is not certified for either provider. Native polls, proactive monitoring, and the simplified mobile companion remain unfinished. See [agent setup](docs/agent-setup.md).
 
 ## Run locally
 

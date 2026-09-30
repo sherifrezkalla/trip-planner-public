@@ -1,6 +1,6 @@
 # Trip Planner Roadmap
 
-Last updated: 2026-09-26
+Last updated: 2026-09-30
 
 This roadmap is the product-level source of truth. A feature is marked **shipped** only after it is merged, migrated when necessary, deployed, and verified in production.
 
@@ -60,7 +60,7 @@ The reasoning behind this direction — market analysis, positioning, product pr
 - Current-source OpenClaw/Hermes configuration templates, canonical group behavior/notice, and credential-safe read-only MCP/setup verification commands. No new migration. See [connector architecture](docs/architecture/trip-agent-connectors.md).
 - PR #89 (private development record) merged and deployed. Production checks on an exact disposable trip passed pairing, registration/mapping, synthetic activation, active reads without setup scope, pause/resume, immediate old-credential rejection after rotation, preserved readiness evidence, and immediate revocation. Guarded cleanup verified no trip-owned remnants. Deployed UI role visibility was checked with synthetic browser responses. See [release evidence](docs/architecture/trip-agent-connectors-release.md).
 - Hermes activation milestone verified 2026-09-27: installed 0.21.5 transport discovered the twelve tools and passed readiness; a trusted provider event supplied group/sender identity, the organizer confirmed mapping, and the real privacy-notice receipt was used for production activation and a canonical read. A dedicated profile uses the existing WhatsApp bridge; unrelated standalone services were preserved. See [operator evidence and limitations](docs/architecture/trip-agent-connectors-release.md#hermes-activation-checkpoint--2026-09-27).
-- **Not shipped as a working WhatsApp integration.** Hermes conversation verification is blocked by an exhausted model-provider weekly limit. Both providers still need the live group matrix: restrained replies, further sender mapping, change delivery receipts, exact action retries, pause/revoke, and provider outage recovery; OpenClaw also needs installed-runtime protocol verification. Hermes native polls require individual-sender vote evidence; poll totals alone cannot vote.
+- **Not shipped as a working WhatsApp integration.** One real Hermes read-only group conversation was verified on 2026-09-30 after model access recovered. Remaining live-trip acceptance checks are deferred until a live trip; they are not recorded as passed. Both providers still need the live group matrix: restrained replies, further sender mapping, change delivery receipts, exact action retries, pause/revoke, and provider outage recovery; OpenClaw also needs installed-runtime protocol verification. Hermes native polls require individual-sender vote evidence; poll totals alone cannot vote.
 - Provider credentials and WhatsApp sessions remain organizer-operated. Proactive monitoring and the simplified mobile companion are not included in this preview.
 
 ## Next
@@ -170,3 +170,9 @@ Source cleanup does not sanitize previous commits, PRs, issues, or account metad
 ## Public source distribution
 
 The public repository begins with a reviewed source snapshot and fresh history. Beginner, self-hosting, contribution, and optional agent guides are included. Hosting still requires technical setup, and real-group agent verification remains incomplete. See [public-source readiness](docs/architecture/public-release-readiness.md).
+
+## Guided agent onboarding — implementation
+
+The organizer card presents five setup stages, plain-language next steps, a credential-free brief for a capable existing assistant/operator, and a path for organizers who do not yet have an agent. Advanced configuration remains available on demand. Pairing secrets stay separate from the copied brief; identity, access and actual notice delivery remain required. A first-question prompt is optional, and deferred live-trip checks do not become passing checks. See [guided onboarding architecture](docs/architecture/guided-agent-onboarding.md).
+
+This is an app-side implementation, not a no-code installer or hosted-agent service. Deployment and production UI verification on a chosen installation are required before marking this iteration shipped. A capable local assistant or technical operator still performs secure provider setup.

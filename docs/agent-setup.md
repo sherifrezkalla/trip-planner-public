@@ -1,6 +1,6 @@
 # Connect your own agent
 
-**Optional advanced preview.** The normal web app does not need an external agent. This guide explains the process in everyday language; a technical operator still needs to perform the provider-side installation and configuration.
+**Optional guided setup preview.** The normal web app does not need an external agent. The organizer card now gives you a step-by-step path and a setup brief to share with your existing assistant. A capable local assistant or technical operator still performs provider-side configuration; the app does not install or host an agent.
 
 ## What you need
 
@@ -13,15 +13,15 @@
 
 ## The connection flow
 
-1. **Choose your assistant.** Open the organizer's **Trip agent** card and choose the provider. This chooses the integration; it does not install the agent.
-2. **Pair privately.** Issue a ten-minute, single-use code. The operator exchanges it on the agent machine and stores the returned credential securely. Never post either value in a group chat or public issue.
+1. **Choose your assistant.** Open the organizer's **Trip agent** card and choose Hermes or OpenClaw. If you do not have one, open **I don’t have an assistant yet**; you can keep using the web app independently. Copy the **setup brief** into a private conversation with your capable local assistant, or share it with its operator. You can read the brief before copying. It contains no trip data or access credentials, and copying does not pair or activate anything.
+2. **Pair privately.** Wait until your assistant or operator is ready, then issue a ten-minute, single-use code. Enter the code only through its secure local setup input, never an AI chat. The operator exchanges it on the agent machine and stores the returned credential securely. Never post either value in a group chat or public issue.
 3. **Identify the group.** The operator registers the chosen group using identifiers from real provider events. A group invitation URL is not a Trip Planner pairing code.
 4. **Confirm yourself.** In the app, match the observed WhatsApp participant to your human organizer identity. Verify the participant using WhatsApp; a display name alone is not proof. Other travelers need their own confirmed mappings before protected actions.
 5. **Review permissions.** Read the authority settings and choose the access you intend to grant.
 6. **Disclose and activate.** The connector sends the exact privacy notice once, records the real message receipt, and activates. Copying the notice in the app does not prove delivery.
-7. **Test the whole path.** From your confirmed human account, ask the assistant a simple trip question in the selected group. Verify that it reads the current plan and replies in the group.
+7. **Try a first question when ready.** The active card offers a question to copy. From your confirmed personal account, mention your assistant in the selected group and ask it. You can defer this until your trip; a deferred check is not a passing one.
 
-**Paired**, **active**, and **successfully answered in WhatsApp** are different milestones. Do not call setup complete based only on the first two.
+**Paired**, **active**, and **successfully answered in WhatsApp** are different milestones. The guided steps reflect server-confirmed setup, not a certification that every live-trip flow works. The app does not automatically mark conversation tests passed.
 
 ## Existing WhatsApp accounts
 
@@ -33,6 +33,6 @@ A model quota failure is independent of WhatsApp pairing. Restore model access a
 
 Use **Pause** to stop canonical Trip Planner access, or **Revoke** to remove the connector's authorization. Follow the provider guide when rotating credentials or changing groups. Those controls govern Trip Planner access; the provider's own chat history and account access have separate controls.
 
-## The simpler experience we intend to build
+## What this guide handles—and what still needs help
 
-A future installer/provider handoff should handle secure pairing, compatible tool configuration, group selection, identity confirmation, and a real test without editing configuration files. That flow is not implemented yet. For now, use the web app independently or ask a technical operator to follow one supported provider guide.
+The app explains the next step, prepares a credential-free [setup brief](connectors/agent-assisted-setup.md), shows connection progress, and keeps configuration templates under **Advanced setup help**. It does not remotely install software, access provider accounts, collect a pairing code on the provider’s behalf, or send WhatsApp messages. An assistant capable of secure local setup can do that work with your approval; otherwise, its operator follows the provider guide. A packaged installer and hosted-agent service remain future work.
