@@ -171,8 +171,8 @@ Source cleanup does not sanitize previous commits, PRs, issues, or account metad
 
 The public repository begins with a reviewed source snapshot and fresh history. Beginner, self-hosting, contribution, and optional agent guides are included. Hosting still requires technical setup, and real-group agent verification remains incomplete. See [public-source readiness](docs/architecture/public-release-readiness.md).
 
-## Guided agent onboarding — implementation
+## Guided agent onboarding — deployed preview
 
 The organizer card presents five setup stages, plain-language next steps, a credential-free brief for a capable existing assistant/operator, and a path for organizers who do not yet have an agent. Advanced configuration remains available on demand. Pairing secrets stay separate from the copied brief; identity, access and actual notice delivery remain required. A first-question prompt is optional, and deferred live-trip checks do not become passing checks. See [guided onboarding architecture](docs/architecture/guided-agent-onboarding.md).
 
-This is an app-side implementation, not a no-code installer or hosted-agent service. Deployment and production UI verification on a chosen installation are required before marking this iteration shipped. A capable local assistant or technical operator still performs secure provider setup.
+This is an app-side implementation, not a no-code installer or hosted-agent service. Public PR #5 was deployed to the existing production installation on 2026-09-30. Homepage and existing-trip join-page checks passed; authenticated organizer-card verification remains pending before marking this iteration fully shipped. A capable local assistant or technical operator still performs secure provider setup.
