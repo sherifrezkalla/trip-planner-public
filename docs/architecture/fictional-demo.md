@@ -27,3 +27,10 @@ Release status is recorded in ROADMAP after production verification. No schema, 
 - Desktop and 390px-wide layouts inspected; the narrow viewport had no horizontal overflow.
 - Synthetic screenshots: [desktop preview](images/fictional-demo/desktop-preview.png), [mobile preview](images/fictional-demo/mobile-preview.png).
 - No live agent, real trip, model, venue or booking operation was exercised.
+
+
+### Production acceptance record — 2026-10-01
+
+Public [PR #10](https://github.com/sherifrezkalla/trip-planner-public/pull/10) merged at `fd7fc719df14fb952d48e5ce1a13d45d2b7c85de`. Vercel production deployment `dpl_7iatNacssQioHpeFX74Xi91hFfzB` reached READY for that exact source and the canonical domain.
+
+The public `/demo` loaded without joining a trip or providing credentials. Browser checks passed for preview, two-traveler acceptance, organizer approval, reset and reload. Only the in-page sample changed. No live-provider acceptance is implied by this release.
