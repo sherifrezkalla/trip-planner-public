@@ -2,6 +2,8 @@
 
 ## Using the app
 
+- [Interactive fictional demo](https://trip-planner-seven-kappa.vercel.app/demo): try a sample decision without accounts or setup. [Design and limits](architecture/fictional-demo.md).
+
 - [Fictional trip walkthrough](project-tour.md): understand the complete web workflow and what is available today without installing anything.
 
 - [Beginner's guide](getting-started.md): create or join a trip, collaborate, and troubleshoot.

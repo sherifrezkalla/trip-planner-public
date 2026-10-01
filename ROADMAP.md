@@ -179,4 +179,9 @@ This is an app-side implementation, not a no-code installer or hosted-agent serv
 
 ## Public contributor experience
 
-A [fictional trip walkthrough](docs/project-tour.md) explains the web workflow and current support boundaries without requiring credentials. GitHub issue forms and contribution entry points help newcomers report reproducible problems and propose focused improvements. This is documentation and repository tooling, not an interactive public sandbox or a no-code installer. See [design and limitations](docs/architecture/public-contributor-experience.md).
+A [fictional trip walkthrough](docs/project-tour.md) explains the web workflow and current support boundaries without requiring credentials. GitHub issue forms and contribution entry points help newcomers report reproducible problems and propose focused improvements. The written tour and repository tooling are complemented by the separate fictional demo described below. A no-code installer is not provided. See [design and limitations](docs/architecture/public-contributor-experience.md).
+
+
+## Interactive fictional demo — implementation ready for deployment
+
+A standalone `/demo` lets visitors explore an authored Lisbon day, preview removing an afternoon stop, try votes and organizer decisions, mark unprotected stops complete, and reset. It uses in-page state only: no database writes, paid provider calls, accounts or WhatsApp messages. A pending request cancels if its target is completed. This is a teaching example, not the V2 mobile companion or live collaborative service. Production verification is pending. See [design and limitations](docs/architecture/fictional-demo.md).

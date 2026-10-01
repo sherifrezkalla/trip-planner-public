@@ -10,6 +10,8 @@ This public repository starts from a reviewed source snapshot. Earlier private d
 
 ## See how it works
 
+**[Try the interactive fictional demo](https://trip-planner-seven-kappa.vercel.app/demo)** — preview a change, vote as a sample group and follow the day’s progress. No account, API key or agent is needed. Everything resets on reload; it does not create a real trip.
+
 Follow [a fictional Lisbon weekend](docs/project-tour.md): create a trip, invite friends, build a shared itinerary, decide on changes and use the plan on the day. You can read the tour without installing anything. It includes a concise current-feature and preview-status table.
 
 ## Start here
@@ -64,6 +66,8 @@ npm run build
 ```
 
 Tests and production builds run without real trip data or production credentials. Keep other checkouts and scratch files outside this directory so they do not enter TypeScript's source scan.
+
+To run only the fictional demo, `npm ci` and `npm run dev` are enough; open [localhost:3000/demo](http://localhost:3000/demo). No environment file is needed for that route. The rest of the application still needs the services above.
 
 ## Technical overview
 
