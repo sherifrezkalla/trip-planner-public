@@ -4,7 +4,7 @@
 
 A feature list and an operator setup guide do not show a first-time visitor how the pieces fit together. The project tour follows a fictional group from trip creation to shared decisions and during-trip adjustments. It separates the working web app from the optional agent preview and future product direction.
 
-A static walkthrough is intentionally available without API keys, a database, or a live trip. A link to a shared writable production trip would give strangers join/edit access, make the example mutable and potentially spend a host's provider quota. No such link or identity-restoring credential is published. This tour is not an interactive sandbox, seeded local environment, or a promise of hosted service availability.
+A static walkthrough is intentionally available without API keys, a database, or a live trip. A link to a shared writable production trip would give strangers join/edit access, make the example mutable and potentially spend a host's provider quota. No such link or identity-restoring credential is published. The written tour is complemented by a separate [interactive fictional demo](fictional-demo.md) with disposable in-page state. Neither is a seeded production environment or a promise of hosted service availability.
 
 ## Contributor entry points
 

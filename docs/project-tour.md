@@ -2,7 +2,9 @@
 
 Alex, Sam and Robin want to spend a weekend in Lisbon. They have different interests and want one plan they can change together. This walkthrough shows how Trip Planner helps them, from the first invitation to a changed afternoon.
 
-**This is a made-up example, not a booking or a live shared demo.** You can read it without an account, API key, WhatsApp number or installation. To try the steps, use a website your host has configured, or ask a technical helper to follow [self-hosting](self-hosting.md). Use your own fictional trip; no maintainer trip or identity link is needed.
+**[Try the interactive fictional demo](https://trip-planner-seven-kappa.vercel.app/demo)** for an instant example of a preview, group decision and progress. It resets on reload and makes no real trip or booking.
+
+**The walkthrough below is a made-up example, not a booking or a live shared trip.** You can read it without an account, API key, WhatsApp number or installation. To try the steps, use a website your host has configured, or ask a technical helper to follow [self-hosting](self-hosting.md). Use your own fictional trip; no maintainer trip or identity link is needed.
 
 ## 1. Create one shared trip
 
