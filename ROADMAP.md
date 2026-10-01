@@ -1,6 +1,6 @@
 # Trip Planner Roadmap
 
-Last updated: 2026-09-30
+Last updated: 2026-10-01
 
 This roadmap is the product-level source of truth. A feature is marked **shipped** only after it is merged, migrated when necessary, deployed, and verified in production.
 
@@ -71,7 +71,7 @@ The reasoning behind this direction — market analysis, positioning, product pr
 - Make the WhatsApp group the primary traveler interface for trip questions, recommendations, changes, votes, confirmations, and restrained proactive alerts
 - Replace the complex traveler dashboard with a contextual mobile companion for today, the next stop, maps, and pending decisions
 - Preserve explicit organizer confirmation for bookings, payments, cancellations, private data, and permission changes
-- Status: design approved on 2026-08-29; Plan 1 shipped on 2026-09-22 as recorded above. Plans 2–4 and the full WhatsApp-first V2 remain unshipped.
+- Status: design approved on 2026-08-29; Plan 1 shipped on 2026-09-22 as recorded above. Plan 2 has a shipped app-side operator preview, with full live-provider acceptance still open. Plans 3–4 and the full WhatsApp-first V2 remain unshipped.
 
 ### Concierge itinerary lookup
 
@@ -176,3 +176,7 @@ The public repository begins with a reviewed source snapshot and fresh history. 
 The organizer card presents five setup stages, plain-language next steps, a credential-free brief for a capable existing assistant/operator, and a path for organizers who do not yet have an agent. Advanced configuration remains available on demand. Pairing secrets stay separate from the copied brief; identity, access and actual notice delivery remain required. A first-question prompt is optional, and deferred live-trip checks do not become passing checks. See [guided onboarding architecture](docs/architecture/guided-agent-onboarding.md).
 
 This is an app-side implementation, not a no-code installer or hosted-agent service. Public PR #5 was deployed to the existing production installation on 2026-09-30. Homepage and existing-trip join-page checks passed. A fictional trip then verified the authenticated organizer card, its five stages, and the canonical setup brief on 2026-09-30. The app-side guided preview is shipped; provider pairing and broader live-trip acceptance remain separate checks. A capable local assistant or technical operator still performs secure provider setup.
+
+## Public contributor experience
+
+A [fictional trip walkthrough](docs/project-tour.md) explains the web workflow and current support boundaries without requiring credentials. GitHub issue forms and contribution entry points help newcomers report reproducible problems and propose focused improvements. This is documentation and repository tooling, not an interactive public sandbox or a no-code installer. See [design and limitations](docs/architecture/public-contributor-experience.md).

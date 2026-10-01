@@ -1,0 +1,39 @@
+name: Bug report
+description: Report a reproducible problem using fictional trip data.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please use fictional examples. Do not include trip/resume links, tokens, credentials, real travelers, bookings or unredacted logs. For vulnerabilities, use [private security reporting](https://github.com/sherifrezkalla/trip-planner-public/security/advisories/new).
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the visible problem and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Use a made-up trip and names. Include the action and a redacted error message, if any.
+      placeholder: "1. Create a fictional trip…
+2. Join as organizer…
+3. …"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: App commit/version if known, browser/device, self-hosted or existing installation, and organizer or traveler role. Include configuration variable names only, never their values.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked for an existing report and removed private links, credentials and personal trip data.
+          required: true

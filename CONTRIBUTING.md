@@ -2,6 +2,15 @@
 
 Start with the [README](README.md), [roadmap](ROADMAP.md), and [hosting guide](docs/self-hosting.md). Documentation, accessibility, and test improvements are welcome alongside code changes.
 
+## Good places to start
+
+- Try the [fictional walkthrough](docs/project-tour.md) on your own configured installation and report unclear instructions with synthetic examples.
+- Improve keyboard navigation, form labels or error explanations, with focused reproduction steps.
+- Add meaningful regression coverage for a reported bug without depending on paid APIs.
+- Fix broken documentation links or explain a setup failure using redacted errors.
+
+Use the repository’s [issue forms](https://github.com/sherifrezkalla/trip-planner-public/issues/new/choose) for bugs and proposals. Larger work such as proactive monitoring, offline writes, hosted agents or the mobile companion needs design discussion before implementation. Live-provider claims require their own evidence; ordinary web improvements do not require connecting WhatsApp.
+
 ## Workflow
 
 1. Check existing issues and PRs. Describe problems with synthetic examples; discuss substantial product changes first.
