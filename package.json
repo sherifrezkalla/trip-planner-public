@@ -29,7 +29,7 @@
     "@electric-sql/pglite": "^0.5.7",
     "@modelcontextprotocol/client": "^2.1.0",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^24.19.0",
     "@types/pg": "^8.23.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
