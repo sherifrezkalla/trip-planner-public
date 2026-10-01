@@ -2,6 +2,8 @@
 
 ## Using the app
 
+- [Fictional trip walkthrough](project-tour.md): understand the complete web workflow and what is available today without installing anything.
+
 - [Beginner's guide](getting-started.md): create or join a trip, collaborate, and troubleshoot.
 - [Agent setup overview](agent-setup.md): guided steps, a setup brief for your existing assistant, responsibilities, and current limits.
 - [Roadmap](../ROADMAP.md): shipped, preview, and planned features.

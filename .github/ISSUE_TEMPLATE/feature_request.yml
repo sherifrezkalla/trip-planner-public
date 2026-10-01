@@ -1,0 +1,27 @@
+name: Feature request
+description: Explain a traveler, organizer or host problem and a proposed improvement.
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the [roadmap](https://github.com/sherifrezkalla/trip-planner-public/blob/master/ROADMAP.md) first. Use fictional examples and keep private trip details out of this public report.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Who needs this, and what is difficult today?
+      description: Give a concrete traveler, organizer or host scenario.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Explain what the user would do and how they would know it worked.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and limitations
+      description: Mention existing workarounds, relevant roadmap items or tradeoffs.

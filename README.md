@@ -8,6 +8,10 @@ Trip Planner is a collaborative web app for friends and families. An organizer c
 
 This public repository starts from a reviewed source snapshot. Earlier private development history and its issue discussions are not included. Historical validation notes describe maintainer checks before this release; current checks are available in this repository’s Actions tab.
 
+## See how it works
+
+Follow [a fictional Lisbon weekend](docs/project-tour.md): create a trip, invite friends, build a shared itinerary, decide on changes and use the plan on the day. You can read the tour without installing anything. It includes a concise current-feature and preview-status table.
+
 ## Start here
 
 | Your goal | Read this |

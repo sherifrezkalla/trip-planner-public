@@ -2,6 +2,8 @@
 
 This guide is for someone using an already configured Trip Planner website. You do not need GitHub, a terminal, an AI agent, or your own API keys. Ask the person hosting the app for its address. There is no public hosted service promised by this repository.
 
+For a concrete example, follow [a fictional group weekend](project-tour.md).
+
 ## Join a trip
 
 1. Open the private trip link from your organizer.
@@ -14,7 +16,7 @@ Keep using the same browser. Your browser stores a private access credential. To
 ## Organize a trip
 
 1. Open your host's Trip Planner website and create a trip with its destination, dates, and budget.
-2. Join as the organizer and enter your preferences.
+2. Join your new trip and enter your preferences **before sharing the invitation**. The first traveler to join becomes the organizer.
 3. Share the trip invitation directly with the people traveling with you. Anyone holding it can join.
 4. Ask travelers to add their preferences before generating an itinerary.
 5. Generate the plan and review the proposed places, timing, travel distances, and group fit.
