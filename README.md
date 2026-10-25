@@ -84,3 +84,8 @@ Making this source public does not publish a separately hosted database, but com
 ## License
 
 [MIT](LICENSE). Third-party services and dependencies have their own terms and licenses.
+
+
+## Security dependency baseline — October 2026
+
+Next.js is pinned to 16.4.3 to incorporate the October security fixes (including GHSA-p3m5-59mp-jv5r, GHSA-2464-fhr4-w9xw and GHSA-673q-mjm6-r5xr). Compatible dependency patches are recorded in the lockfile. Deploy from the committed lockfile and rebuild; updating a developer workstation does not patch an existing deployment.
